@@ -2,7 +2,7 @@ import {Telegraf, Markup} from 'telegraf';
 
 const token = '6945772404:AAFOThuol5cUfgJUcUi7ZbU8z4nT5DfnTm4';
 const bot = new Telegraf(token);
-const webAppUrl = 'https://google.com/';
+const webAppUrl = 'https://angular-tg-app-test-for-bot.web.app';
 
 bot.command('start', (ctx) => {
     ctx.reply(
