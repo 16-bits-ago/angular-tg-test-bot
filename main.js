@@ -8,7 +8,10 @@ const webAppUrl = 'https://angular-tg-app-test-for-bot.web.app';
 bot.command('start', (ctx) => {
     ctx.reply(
         'Hello, I\'m a test TG bot! Press on button bellow to get started',
-        Markup.keyboard([Markup.button.webApp('Send a feedback', webAppUrl + '/feedback')]),
+        Markup.keyboard([
+            Markup.button.webApp('💌 Send a feedback', webAppUrl + '/feedback'),
+            Markup.button.webApp('📞 Call us for more info', webAppUrl + '/feedback')
+        ]),
     );
 });
 
