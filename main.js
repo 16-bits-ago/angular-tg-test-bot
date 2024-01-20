@@ -10,9 +10,15 @@ bot.command('start', (ctx) => {
         'Hello, I\'m a test TG bot! Press on button bellow to get started',
         Markup.keyboard([
             Markup.button.webApp('💌 Send a feedback', webAppUrl + '/feedback'),
-            Markup.button.webApp('📞 Call us for more info', webAppUrl + '/feedback')
-        ]),
+            Markup.button.url('📞 Call us for more info: 1234567890', `tel:1234567890`),
+            Markup.button.contactRequest('📞 Call us for more info', false, { user_phone_number: '+1234567890' }), // bot.on(message('contact')
+        ]).resize(),
     );
+});
+
+bot.on(message('contact'), async (ctx) => {
+    const { phone_number, first_name } = ctx.message.contact;
+    ctx.reply(`Received contact: ${first_name} (${phone_number})`);
 });
 
 bot.on(message('web_app_data'), async (ctx) => {
